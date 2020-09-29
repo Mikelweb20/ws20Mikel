@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<label for="e1">Lehenengo eragigaia:</label>
+		<input type="number" id="e1" name="e1"><br><br>
+
+		<label for="eragiketa">Eragiketa:</label>
+		<select name="eragiketa" id="eragiketa">
+			<option value="gei">+</option>
+			<option value="ken">-</option>
+			<option value="bider">*</option>
+			<option value="zati">/</option>
+		</select><br><br>
+
+		<label for="e2">Bigarren eragigaia:</label>
+		<input type="number" id="e2" name="e2"><br><br>
+
+		<label for="eran">Zure erantzuna:</label>
+		<input type="number" id="eran" name="eran"><br><br>
+
+		<button type="button" name="button" onclick="kalkulatu()">Bidali</button>
+
+		<div id="feedback">
+
+		</div>
+
+		<script type="text/javascript">
+			function kalkulatu(){
+				var e1 = document.getElementById('e1').value;
+				var eragiketa = document.getElementById('eragiketa').value;
+				var e2 = document.getElementById('e2').value;
+				var eran = document.getElementById('eran').value;
+
+				var erantzunZuzena = false;
+
+				switch(eragiketa){
+					case "gei":
+					  erantzunZuzena = (e1 + e2 == eran);
+						break;
+
+					case "ken":
+						erantzunZuzena = (e1 - e2 == eran);
+						break;
+
+					case "bider":
+						erantzunZuzena = (e1 * e2 == eran);
+						break;
+
+					default:
+						erantzunZuzena = e1 / e2 == eran;
+				}
+
+				if(erantzunZuzena){
+					document.getElementById("feedback").innerHTML = "Zure erantzuna ondo dago!";
+				}else{
+					document.getElementById("feedback").innerHTML = "Zure erantzuna gaizki dago!";
+				}
+
+
+			}
+		</script>
+
+	</body>
+</html>
