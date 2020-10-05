@@ -44,19 +44,19 @@
 
 				switch(eragiketa){
 					case "gei":
-					  erantzunZuzena = (e1*1 + e2*1 == eran);
+					  erantzunZuzena = (parseInt(e1) + parseInt(e2) == eran);
 						break;
 
 					case "ken":
-						erantzunZuzena = (e1 - e2 == eran);
+						erantzunZuzena = (parseInt(e1) - parseInt(e2) == eran);
 						break;
 
 					case "bider":
-						erantzunZuzena = (e1 * e2 == eran);
+						erantzunZuzena = (parseInt(e1) * parseInt(e2) == eran);
 						break;
 
 					default:
-						erantzunZuzena = e1 / e2 == eran;
+						erantzunZuzena = parseInt(e1) / parseInt(e2) == eran;
 				}
 
 				if(erantzunZuzena){
