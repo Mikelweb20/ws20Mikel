@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<label for="e1">Lehenengo eragigaia:</label>
+		<input type="number" id="e1" name="e1"><br><br>
+
+		<label for="eragiketa">Eragiketa:</label>
+		<select name="eragiketa" id="eragiketa">
+			<option value="gei">+</option>
+			<option value="ken">-</option>
+			<option value="bider">*</option>
+			<option value="zati">/</option>
+		</select><br><br>
+
+		<label for="e2">Bigarren eragigaia:</label>
+		<input type="number" id="e2" name="e2"><br><br>
+
+		<label for="eran">Zure erantzuna:</label>
+		<input type="number" id="eran" name="eran"><br><br>
+
+		<button type="button" name="button" onclick="kalkulatu()">Bidali</button>
+
+		<div id="feedback">
+
+		</div>
+
+		<script type="text/javascript">
+			function kalkulatu(){
+
+				var patata = $("#patata").val();
+
+				var e1 = $("#e1").val();
+				var eragiketa = $("#eragiketa").val();
+				var e2 = $("#e2").val();
+				var eran = $("#eran").val();
+				var erantzunZuzena = false;
+
+				switch(eragiketa){
+					case "gei":
+					  erantzunZuzena = (e1*1 + e2*1 == eran);
+						break;
+
+					case "ken":
+						erantzunZuzena = (e1 - e2 == eran);
+						break;
+
+					case "bider":
+						erantzunZuzena = (e1 * e2 == eran);
+						break;
+
+					default:
+						erantzunZuzena = e1 / e2 == eran;
+				}
+
+				if(erantzunZuzena){
+					$('#feedback').html("Zure erantzuna ondo dago!");
+				}else{
+					$('#feedback').html("Zure erantzuna gaizki dago!");
+				}
+
+
+			}
+		</script>
+
+	</body>
+</html>
